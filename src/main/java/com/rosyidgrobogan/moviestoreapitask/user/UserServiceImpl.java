@@ -1,5 +1,6 @@
 package com.rosyidgrobogan.moviestoreapitask.user;
 
+import com.rosyidgrobogan.moviestoreapitask.helpers.errors.ApiRequestException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,11 @@ public class UserServiceImpl
     @Override
     public void createUser(UserReq req)
     {
+
+        // isEmail Taken
+        if (userRepository.existsByEmail(req.getEmail())) {
+            throw new ApiRequestException(req.getEmail() + " is taken");
+        }
 
         User user = new User();
 

@@ -1,5 +1,6 @@
 package com.rosyidgrobogan.moviestoreapitask.user;
 
+import com.rosyidgrobogan.moviestoreapitask.helpers.errors.ApiRequestException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,10 @@ public class UserController
             @RequestBody @Valid UserReq req
     )
     {
-        userService.createUser(req);
+        try {
+            userService.createUser(req);
+        }catch (RuntimeException e) {
+            throw new ApiRequestException(e.getMessage());
+        }
     }
 }
