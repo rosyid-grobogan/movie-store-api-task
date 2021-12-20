@@ -15,7 +15,7 @@ public class UserServiceImpl
     }
 
     @Override
-    public void createUser(UserReq req)
+    public UserRes createUser(UserReq req)
     {
 
         // isEmail Taken
@@ -33,5 +33,8 @@ public class UserServiceImpl
         user.setRole(RoleEnum.ROLE_USER);
 
         userRepository.save(user);
+        UserRes dataRes = new UserRes("201", "success", user);
+
+        return dataRes;
     }
 }

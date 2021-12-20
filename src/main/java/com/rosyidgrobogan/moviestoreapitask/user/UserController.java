@@ -1,6 +1,8 @@
 package com.rosyidgrobogan.moviestoreapitask.user;
 
 import com.rosyidgrobogan.moviestoreapitask.helpers.errors.ApiRequestException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,12 +22,13 @@ public class UserController
     }
 
     @PostMapping("/signup")
-    public void signup(
+    public ResponseEntity<UserRes> signup(
             @RequestBody @Valid UserReq req
     )
     {
         try {
-            userService.createUser(req);
+            UserRes data = userService.createUser(req);
+            return new ResponseEntity<>(data, HttpStatus.OK);
         }catch (RuntimeException e) {
             throw new ApiRequestException(e.getMessage());
         }
