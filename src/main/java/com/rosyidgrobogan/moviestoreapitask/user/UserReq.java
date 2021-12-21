@@ -1,5 +1,6 @@
 package com.rosyidgrobogan.moviestoreapitask.user;
 
+import com.rosyidgrobogan.moviestoreapitask.data.GenderEnum;
 import lombok.Data;
 
 import javax.validation.constraints.Email;

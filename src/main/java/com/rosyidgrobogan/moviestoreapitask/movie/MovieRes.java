@@ -1,16 +1,19 @@
-package com.rosyidgrobogan.moviestoreapitask.user;
+package com.rosyidgrobogan.moviestoreapitask.movie;
 
+import com.rosyidgrobogan.moviestoreapitask.data.Movie;
 import com.rosyidgrobogan.moviestoreapitask.data.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRes
+public class MovieRes
 {
     private String code;
     private String message;
-    private User data;
+    private Optional<Movie> data;
 }

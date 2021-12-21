@@ -1,4 +1,4 @@
-package com.rosyidgrobogan.moviestoreapitask.user;
+package com.rosyidgrobogan.moviestoreapitask.data;
 
 public enum RoleEnum
 {

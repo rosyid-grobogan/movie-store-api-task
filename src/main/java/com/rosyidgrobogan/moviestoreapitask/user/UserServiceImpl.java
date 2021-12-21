@@ -1,5 +1,7 @@
 package com.rosyidgrobogan.moviestoreapitask.user;
 
+import com.rosyidgrobogan.moviestoreapitask.data.RoleEnum;
+import com.rosyidgrobogan.moviestoreapitask.data.User;
 import com.rosyidgrobogan.moviestoreapitask.helpers.errors.ApiRequestException;
 import org.springframework.stereotype.Service;
 

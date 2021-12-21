@@ -1,8 +1,11 @@
-package com.rosyidgrobogan.moviestoreapitask.user;
+package com.rosyidgrobogan.moviestoreapitask.data;
 
+import com.rosyidgrobogan.moviestoreapitask.data.GenderEnum;
+import com.rosyidgrobogan.moviestoreapitask.data.RoleEnum;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -32,4 +35,13 @@ public class User
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private RoleEnum role;
+
+    @ManyToMany(
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL
+    )
+    @JoinTable(name = "purchases",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
+    )
+    private List<Movie> movies;
 }
