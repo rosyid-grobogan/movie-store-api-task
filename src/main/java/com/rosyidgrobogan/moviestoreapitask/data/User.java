@@ -17,7 +17,7 @@ public class User
     private Long id;
 
     @Column(nullable = false)
-    private String fullName;
+    private String username;
 
     @Column(nullable = false)
     private String email;
@@ -32,9 +32,9 @@ public class User
     @Column(length = 6)
     private GenderEnum genderEnum;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private RoleEnum role;
+//    @Enumerated(EnumType.STRING)
+//    @Column(length = 20)
+    private String role;
 
 //    @ManyToMany(
 //            fetch = FetchType.LAZY, cascade = CascadeType.DETACH
