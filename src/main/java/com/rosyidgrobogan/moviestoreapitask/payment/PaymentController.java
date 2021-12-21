@@ -1,5 +1,6 @@
 package com.rosyidgrobogan.moviestoreapitask.payment;
 
+import com.rosyidgrobogan.moviestoreapitask.data.Purchase;
 import com.rosyidgrobogan.moviestoreapitask.helpers.errors.ApiRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +21,23 @@ public class PaymentController
     }
 
     @PostMapping
-    public ResponseEntity<PaymentRes> confirmationPayment(
+    public ResponseEntity<PaymentRes> confirmBank(
             @RequestBody PaymentReq req
     ){
         try {
-            PaymentRes data = paymentService.confirmationPayment(req);
+            PaymentRes data = paymentService.confirmBank(req);
+            return new ResponseEntity<>(data, HttpStatus.OK);
+        } catch (RuntimeException e){
+            throw new ApiRequestException(e.getMessage());
+        }
+    }
+
+    @PostMapping("/confirm")
+    public ResponseEntity<PaymentRes> confirmPayment(
+            @RequestBody ConfirmReq req
+    ){
+        try {
+            PaymentRes data = paymentService.confirmPayment(req);
             return new ResponseEntity<>(data, HttpStatus.OK);
         } catch (RuntimeException e){
             throw new ApiRequestException(e.getMessage());

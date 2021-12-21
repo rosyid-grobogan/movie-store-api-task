@@ -11,8 +11,8 @@ Dengan case dimana user dapat melakukan hal-hal di bawah ini :
 2. Login menggunakan email yang terdaftar 
 3. List atau katalog film / movie yang tersedia [done]
 4. Detail film / movie yang dipilih [done]
-5. Pembelian film / movie dengan asumsi pembeli melakukan transfer bank 
-6. List film / movie yang sudah dibeli 
+5. Pembelian film / movie dengan asumsi pembeli melakukan transfer bank [done]
+6. List film / movie yang sudah dibeli [done]
 
 Objective : 
 

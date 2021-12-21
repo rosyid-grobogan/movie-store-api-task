@@ -36,12 +36,14 @@ public class User
     @Column(length = 20)
     private RoleEnum role;
 
-    @ManyToMany(
-            fetch = FetchType.LAZY, cascade = CascadeType.ALL
-    )
-    @JoinTable(name = "purchases",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
-    )
-    private List<Movie> movies;
+//    @ManyToMany(
+//            fetch = FetchType.LAZY, cascade = CascadeType.DETACH
+//    )
+//    @JoinTable(name = "purchases",
+//            joinColumns = {@JoinColumn(name = "user_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
+//    )
+//    private List<Movie> movies;
+    @OneToMany(mappedBy = "user")
+    private List<Purchase> users;
 }

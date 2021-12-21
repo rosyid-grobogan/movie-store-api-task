@@ -1,6 +1,9 @@
 package com.rosyidgrobogan.moviestoreapitask.payment;
 
+import com.rosyidgrobogan.moviestoreapitask.data.Purchase;
+
 public interface PaymentService
 {
-    PaymentRes confirmationPayment(PaymentReq res);
+    PaymentRes confirmBank(PaymentReq req);
+    PaymentRes confirmPayment(ConfirmReq req);
 }
